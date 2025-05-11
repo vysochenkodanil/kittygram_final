@@ -11,7 +11,7 @@ load_dotenv(dotenv_path=BASE_DIR / '.env')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
     os.getenv('LOCAL_IP'),
@@ -131,3 +131,4 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
+print(os.environ)
