@@ -183,25 +183,25 @@ jobs:
         target: "kittygram"
 
   # Создаём .env-файл прямо на сервере из GitHub Secrets
-    - name: Create .env on server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.SSH_PASSPHRASE }}
-        script: |
-          cd kittygram
-          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > .env
-          echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> .env
-          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
-          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
-          echo "DB_HOST=db" >> .env
-          echo "DB_PORT=5432" >> .env
-          echo "DJANGO_DEBUG=False" >> .env
-          echo "LOCAL_IP=${{ secrets.LOCAL_IP }}" >> .env
-          echo "YANDEX_IP=${{ secrets.YANDEX_IP }}" >> .env
-          echo "DOMAIN=${{ secrets.DOMAIN }}" >> .env
+    # - name: Create .env on server
+    #   uses: appleboy/ssh-action@master
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USER }}
+    #     key: ${{ secrets.SSH_KEY }}
+    #     passphrase: ${{ secrets.SSH_PASSPHRASE }}
+    #     script: |
+    #       cd kittygram
+    #       echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > .env
+    #       echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> .env
+    #       echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+    #       echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
+    #       echo "DB_HOST=db" >> .env
+    #       echo "DB_PORT=5432" >> .env
+    #       echo "DJANGO_DEBUG=False" >> .env
+    #       echo "LOCAL_IP=${{ secrets.LOCAL_IP }}" >> .env
+    #       echo "YANDEX_IP=${{ secrets.YANDEX_IP }}" >> .env
+    #       echo "DOMAIN=${{ secrets.DOMAIN }}" >> .env
 
   # Деплой и миграции
     - name: Executing remote ssh commands to deploy
