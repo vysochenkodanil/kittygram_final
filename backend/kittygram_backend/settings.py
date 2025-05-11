@@ -3,9 +3,9 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-
 load_dotenv(dotenv_path=BASE_DIR / '.env')
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
