@@ -13,9 +13,9 @@ jobs:
       postgres:
         image: postgres:13.10
         env:
-          POSTGRES_USER: django_user
-          POSTGRES_PASSWORD: django_password
-          POSTGRES_DB: django_db
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER}}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD}}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
         ports:
           - 5432:5432
 
@@ -36,9 +36,9 @@ jobs:
     - name: Test with flake8 and django tests
 
       env:
-        POSTGRES_USER: django_user
-        POSTGRES_PASSWORD: django_password
-        POSTGRES_DB: django_db
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER}}
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD}}
+        POSTGRES_DB: ${{ secrets.POSTGRES_DB}}
 
         DB_HOST: 127.0.0.1
         DB_PORT: 5432
