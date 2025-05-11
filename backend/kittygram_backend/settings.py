@@ -1,12 +1,16 @@
 import os
+
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=BASE_DIR / '.env')
-
+# Сначала определяем BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+# Затем загружаем .env файл
+load_dotenv(dotenv_path=BASE_DIR / '.env')
+
+# Теперь можно использовать переменные окружения
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
