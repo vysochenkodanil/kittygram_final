@@ -3,10 +3,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-# Определяем BASE_DIR до load_dotenv
-BASE_DIR = Path(__file__).resolve().parent.parent.parent  # Добавляем дополнительный parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-# Теперь путь к .env будет корректным
 load_dotenv(dotenv_path=BASE_DIR / '.env')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -131,4 +129,3 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
-print(os.environ)
